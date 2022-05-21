@@ -1,8 +1,6 @@
 # gerenciador-tarefas
 
-Desenvolvimento back-end usando Spring Boot de uma API para registrar as finanças.
-
-Codigo front-end disponivel em: https://github.com/Edufgs/Front-End-minhas-financas-app
+Desenvolvimento de uma aplicação usando Django para gerenciar tarefas.
 
 Aplicação pronta está disponivel: https://minhasfinancas-edufgs-app.herokuapp.com/
 
