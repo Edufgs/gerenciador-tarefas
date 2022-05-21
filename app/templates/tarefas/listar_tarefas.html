@@ -1,0 +1,26 @@
+<!-- Vai hedar a base.html para ser inserido os dados dentro dela -->
+{% extends 'base.html' %}
+
+<!-- Vai inserir o conteudo dentro do bloco herdado (base.html) -->
+{% block conteudo %}
+    <h1>Listagem de tarefas</h1>
+    <!-- Vai mostrar a varivel mandada da views -->
+    {% for tarefa in tarefas %}
+        <div class="card mb-3">
+
+            <div class="card-header">
+                <!-- Mostra o valor da chave e não o caractere -->
+                {{ tarefa.get_prioridade_display }}
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">{{ tarefa.titulo }}</h5>
+                <p class="card-text">{{ tarefa.descricao }}</p>
+                <a href ={% url 'editar_tarefa' tarefa.id %}><input type="button" class="btn btn-primary mb-3" value="Editar tarefa"></a>
+                <a href ={% url 'remover_tarefa' tarefa.id %}><input type="button" class="btn btn-danger mb-3" value="Excluir tarefa"></a>
+            </div>
+
+        </div>
+    {% endfor %}
+    <a href="{% url 'cadastrar_tarefa' %}"><input type="button" class="btn btn-primary mb-3" value="Cadastrar tarefa"></a>
+{% endblock conteudo %}

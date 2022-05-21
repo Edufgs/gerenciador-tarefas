@@ -1,0 +1,46 @@
+<!-- Vai hedar a base.html para ser inserido os dados dentro dela -->
+{% extends 'base.html' %}
+<!-- carrega os filtro que são as classes -->
+{% load meus_filtros %}
+
+<!-- Vai inserir o conteudo dentro do bloco herdado (base.html) -->
+{% block conteudo %}
+    <!-- Formilario é do tipo post -->
+    <form method="post">
+        <!-- Cria um token para dizer que o formulario é da tabela -->
+        {% csrf_token %}
+        <div class="form-group">
+            {{form_tarefa.titulo.errors}}
+            <label>Titulo:</label>
+            <!-- Insere o campo que deseja renderizar -->
+            <!-- Passa adiciona a classa form-controu -->
+            {{form_tarefa.titulo|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+            {{form_tarefa.descricao.errors}}
+            <label>Descrição:</label>
+            <!-- Insere o campo que deseja renderizar -->
+            {{form_tarefa.descricao|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+            {{form_tarefa.data_expiracao.errors}}
+            <label>Data de expiração:</label>
+            <!-- Insere o campo que deseja renderizar -->
+            {{form_tarefa.data_expiracao|addclass:'form-control'}}
+        </div>
+
+        <div class="form-group">
+            {{form_tarefa.prioridades.errors}}
+            <label>Prioridade:</label>
+            <!-- Insere o campo que deseja renderizar -->
+            {{form_tarefa.prioridade|addclass:'form-control'}}
+        </div>
+        
+        <div class="form-group">
+            <!-- Insere o campo que deseja renderizar -->
+            <input type="submit" value="Salvar"></input>
+        </div>
+    </form>
+{% endblock conteudo %}
