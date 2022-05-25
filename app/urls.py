@@ -22,6 +22,8 @@ from .views.tarefa_views import *
 # Vai ter todas as urls do projeto.
 
 urlpatterns = [
+    # Colocando uma URL vazia então vai para o listar_tarefas
+    path('', listar_tarefas, name='listar_tarefas'),
     # Se entrar dentro da URL listar_tarefas, vai chamar a função listar_tarefas.
     path('listar_tarefas/', listar_tarefas, name='listar_tarefas'),
     path('cadastrar_tarefa/', cadastrar_tarefa, name='cadastrar_tarefa'),
